@@ -6,8 +6,14 @@ PlayerSettings:
   serializedVersion: 24
   productName: Crud Custodian
   companyName: DefaultCompany
-  defaultScreenWidth: 1080
-  defaultScreenHeight: 1920
+  # ── Desktop Standalone defaults (Windows & macOS) ──────────────────────
+  # Windowed 1280×720 on first launch; player can go fullscreen via Alt+Enter
+  # (Windows) or the green button (macOS).
+  defaultScreenWidth: 1280
+  defaultScreenHeight: 720
+  # ── Mobile defaults ────────────────────────────────────────────────────
+  # Mobile targets override the width/height above at build time via
+  # per-platform PlayerSettings in the Build Settings window.
   defaultScreenOrientation: 1
   targetDevice: 0
   useOnDemandResources: 0
@@ -16,6 +22,7 @@ PlayerSettings:
   applicationIdentifier:
     Android: com.defaultcompany.crudcustodian
     iPhone: com.defaultcompany.crudcustodian
+    # Standalone bundle ID used for macOS notarization and Windows installer.
     Standalone: com.defaultcompany.crudcustodian
   buildNumber:
     Android: 0
@@ -28,6 +35,11 @@ PlayerSettings:
   iPhoneApplicationDisplayName: Crud Custodian
   iOSMinOSVersion: 14.0
   iOSTargetOSVersionString: 14.0
+  # ── macOS Standalone ───────────────────────────────────────────────────
+  # macOSMinimumVersionString should match the oldest macOS version you
+  # intend to support (Apple Silicon + Intel via Universal build).
+  macOSMinimumVersionString: 12.0
+  # ── Orientation (mobile only – ignored on Standalone) ─────────────────
   allowedAutorotateToPortrait: 1
   allowedAutorotateToPortraitUpsideDown: 0
   allowedAutorotateToLandscapeRight: 0
@@ -63,7 +75,13 @@ PlayerSettings:
   androidStartInFullscreen: 1
   androidShowActivityIndicatorOnLoading: 0
   iosShowActivityIndicatorOnLoading: 0
+  # ── Standalone resolution dialog ───────────────────────────────────────
+  # 0 = disabled (modern Unity launcher is used instead).
   displayResolutionDialog: 0
+  # Allow the desktop window to be resized freely.
+  resizableWindow: 1
+  # Start windowed on desktop so players aren't surprised by full-screen.
+  fullscreenMode: 3
   iosAllowHTTP: 0
   stripUnusedMeshComponents: 0
   strictShaderVariantMatching: 0
@@ -78,9 +96,9 @@ PlayerSettings:
   xboxSpeechDB: 0
   xboxEnableFitness: 0
   visibleInBackground: 1
+  # Allow Alt+Enter (Windows) / green-button (macOS) fullscreen toggle.
   allowFullscreenSwitch: 1
   graphicsJobMode: 0
-  fullscreenMode: 1
   xboxOneFullscreenMode: 0
   xboxOneResolution: 0
   xboxOneSResolution: 0
@@ -98,4 +116,7 @@ PlayerSettings:
   vulkanEnableLateAcquireNextImage: 0
   vulkanUseSWCommandBuffers: 0
   m_SupportedOSPlatforms: 0
+  # 1 = x86_64 (covers both Intel and Apple-Silicon-via-Rosetta on macOS).
+  # For a native Apple Silicon build, set to 2 (arm64) and enable Universal
+  # in Build Settings.
   targetArchitectures: 1

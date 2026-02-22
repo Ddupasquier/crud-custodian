@@ -75,6 +75,20 @@ namespace CrudCustodian.Core
         /// </summary>
         public const int STALL_AUTOMATION_ADDITIONAL_COST_PER_INDEX = 500;
 
+        // ── Desktop window defaults (Windows & macOS Standalone) ──────────
+
+        /// <summary>Default window width in pixels when first launched on desktop.</summary>
+        public const int DESKTOP_DEFAULT_WINDOW_WIDTH_PIXELS = 1280;
+
+        /// <summary>Default window height in pixels when first launched on desktop.</summary>
+        public const int DESKTOP_DEFAULT_WINDOW_HEIGHT_PIXELS = 720;
+
+        /// <summary>Minimum allowed window width so UI never becomes unusable.</summary>
+        public const int DESKTOP_MINIMUM_WINDOW_WIDTH_PIXELS = 960;
+
+        /// <summary>Minimum allowed window height so UI never becomes unusable.</summary>
+        public const int DESKTOP_MINIMUM_WINDOW_HEIGHT_PIXELS = 540;
+
         // ── Authentication ─────────────────────────────────────────────────
 
         /// <summary>
@@ -83,6 +97,19 @@ namespace CrudCustodian.Core
         /// Firebase / Google Cloud project before building.
         /// </summary>
         public const string GOOGLE_OAUTH_WEB_CLIENT_ID = "YOUR_GOOGLE_WEB_CLIENT_ID.apps.googleusercontent.com";
+
+        /// <summary>
+        /// Loopback redirect URI used for the desktop OAuth browser flow.
+        /// Google's OAuth server redirects here after the player approves sign-in.
+        /// Must match a registered URI in your Google Cloud Console credential.
+        /// </summary>
+        public const string GOOGLE_OAUTH_DESKTOP_REDIRECT_URI = "http://localhost:8080/";
+
+        /// <summary>
+        /// Port the local HTTP listener binds to while waiting for the desktop
+        /// OAuth callback.  Must match the port in GOOGLE_OAUTH_DESKTOP_REDIRECT_URI.
+        /// </summary>
+        public const int GOOGLE_OAUTH_DESKTOP_CALLBACK_PORT = 8080;
 
         // ── Scene names ────────────────────────────────────────────────────
 

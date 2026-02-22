@@ -22,10 +22,15 @@ namespace CrudCustodian.Core
         [Tooltip("Tracks the current state of the game (menu, playing, paused, etc.).")]
         [SerializeField] private GameStateController gameStateController;
 
+        [Tooltip("Detects the runtime platform and applies platform-specific settings " +
+                 "(desktop window size, input scheme, etc.).")]
+        [SerializeField] private PlatformManager platformManager;
+
         // ── Public accessors for other scripts ─────────────────────────────
         public CurrencyManager CurrencyManager => currencyManager;
         public SaveDataManager SaveDataManager => saveDataManager;
         public GameStateController GameStateController => gameStateController;
+        public PlatformManager PlatformManager => platformManager;
 
         // ── Unity lifecycle ────────────────────────────────────────────────
         private void Awake()
