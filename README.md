@@ -2,7 +2,7 @@
 
 > **Your character is a janitor that goes around the Safari Zone and picks up poop.**
 
-A 2D idle / walking game built with **Unity 2022 LTS**.  Clean up after Pokemon in their stalls, earn coins, unlock new stalls, and eventually automate the whole operation.
+A 2D idle / walking game built with **Unity 6.3 LTS**.  Clean up after Pokemon in their stalls, earn coins, unlock new stalls, and eventually automate the whole operation.
 
 ---
 
@@ -10,10 +10,10 @@ A 2D idle / walking game built with **Unity 2022 LTS**.  Clean up after Pokemon 
 
 | Platform | Target | Notes |
 |---|---|---|
-| **iOS** | iPhone / iPad (iOS 14+) | Portrait orientation; touch input |
-| **Android** | Android 5.1+ (API 22+) | Portrait orientation; touch input |
+| **iOS** | iPhone / iPad (iOS 16+) | Portrait orientation; touch input |
+| **Android** | Android 9+ (API 28+) | Portrait orientation; touch input |
 | **Windows** | Windows 10/11 (x64) | 1280×720 windowed default; keyboard + mouse |
-| **macOS** | macOS 12+ (Intel & Apple Silicon via Rosetta 2 / Universal build) | 1280×720 windowed default; keyboard + mouse |
+| **macOS** | macOS 13+ (Intel & Apple Silicon via Rosetta 2 / Universal build) | 1280×720 windowed default; keyboard + mouse |
 
 > Desktop builds start windowed (resizable). Press **Alt+Enter** or click the 🖥 toolbar button to toggle full-screen.
 
@@ -136,7 +136,7 @@ Every folder has a single responsibility. Add new Pokemon by creating a new `Pok
 
 ### macOS (Standalone)
 1. Switch platform to **Windows, Mac, Linux Standalone** → set Architecture to **x86_64** (Intel) or **Apple Silicon** (arm64), or enable **Universal** for both.
-2. Set the macOS minimum OS version to **12.0** in Player Settings.
+2. Set the macOS minimum OS version to **13.0** in Player Settings.
 3. Build → notarize the `.app` bundle before distribution outside the Mac App Store.
 
 ---
@@ -148,4 +148,3 @@ Every folder has a single responsibility. Add new Pokemon by creating a new `Pok
 - **`SaveDataManager`** wraps PlayerPrefs with a JSON envelope — swap to a cloud backend by changing one class.
 - **`InputActions.inputactions`** has three control schemes (`KeyboardMouse`, `Gamepad`, `Touch`) so Unity's Input System automatically activates the right one per device.
 - **Desktop window state** (size, windowed vs full-screen) is persisted in PlayerPrefs and restored on next launch.
-
